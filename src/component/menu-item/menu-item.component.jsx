@@ -12,7 +12,7 @@ const MenuItem = ({title,imageUrl,history,linkUrl,match}) => (
         }} 
     >
     <img src = '../../../assets/advance-adult-skipping-rope-red.jpg'/>
-    <div className = "content">
+    <div className = "content"> 
         <h1 className="title">{title}</h1>
         <span className = "subtitle">SHOP NOW</span>
     </div>
