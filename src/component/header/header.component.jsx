@@ -6,7 +6,8 @@ import {logo} from '../../assets/Bathlete-logo.png'
 import {auth} from '../../firebase/firebase.utility'
 
 
-const Header = ({currentUser}) => {
+const Header = ({ currentUser }) => {
+    console.log('currentUser user in header>>>>>>>>>>>>>>', currentUser);
     return (
         <div className='header'>
             <Link className="logo-container" to='/'>
