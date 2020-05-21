@@ -10,7 +10,16 @@
     top: 90px;
     right: 40px;
     z-index: 5;
-  
+
+    &:hover{
+      display: block;
+    }
+
+    .empty-message{
+      font-size: 19px;
+      margin: 90px auto;
+    }
+
     .cart-items {
       height: 293px;
       display: flex;
