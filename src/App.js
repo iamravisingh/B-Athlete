@@ -17,7 +17,6 @@ class App extends React.Component {
   componentWillMount() {
     const { setCurrentUser } = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
-      console.log('user inside the componentwillmount onAuthStateChanged>>>>>>>>>>>', user);
       if (user) {
         const userRef = await createUserProfile(user);
         userRef.onSnapshot(snapshot => {
@@ -25,7 +24,6 @@ class App extends React.Component {
               id: snapshot.id,
               ...snapshot.data()
           })
-          console.log('this.state>>>>>>>>>>>>',setCurrentUser,this.state)
         })
       }
       setCurrentUser(user);
@@ -42,9 +40,9 @@ class App extends React.Component {
         <Header/>
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route path='/shop' component={ShopPage} />
+          <Route exact path='/shop' component={ShopPage} />
           <Route exact path='/checkout' component={CheckoutPage} />
-          <Route exact path='/signin' render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage/>)}/>
+          <Route path='/signin' render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage/>)}/>
         </Switch>
       </div>
       )

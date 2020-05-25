@@ -15,10 +15,8 @@ const firebaseConfig = {
 
 export const createUserProfile = async (user,additionalData) => {
     if (!user) return;
-    console.log('user,additionalData>>>>>>>>>>>>>>', user, additionalData);
     const userRef = firestore.doc(`users/${user.uid}`);
     const snapShot = await userRef.get();
-    console.log('snapShot>>>>>>>>>.', snapShot);
     if (!snapShot.exists) {
         const { displayName, email } = user;
         const createdAt = new Date();

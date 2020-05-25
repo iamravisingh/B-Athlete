@@ -13,8 +13,8 @@ const Header = ({ currentUser ,hidden}) => {
     return (
         <div className='header'>
             <Link className="logo-container" to='/'>
-                {/* <img src={'../../assets/Bathlete-logo.png'} alt={"logo"}/> */}
-                <Logo/>
+                <img src={'/%PUBLIC_URL%/Bathlete-logo.png'} alt={"logo"}/>
+                {/* <Logo/> */}
             </Link>
             <div className="options">
                 <Link className="option" to='/shop'>Shop</Link>
