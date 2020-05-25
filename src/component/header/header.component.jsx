@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import './header.style.scss';
-import { ReactComponent as Logo } from "../../assets/sports.svg";
+import Logo  from "../../assets/Bathlete-logo.png";
 import {logo} from '../../assets/Bathlete-logo.png'
 import { auth } from '../../firebase/firebase.utility'
 import { connect } from 'react-redux';
@@ -13,8 +13,7 @@ const Header = ({ currentUser ,hidden}) => {
     return (
         <div className='header'>
             <Link className="logo-container" to='/'>
-                <img src={'/%PUBLIC_URL%/Bathlete-logo.png'} alt={"logo"}/>
-                {/* <Logo/> */}
+                <img src={Logo} alt={"logo"} width='100px' height='100px'/>
             </Link>
             <div className="options">
                 <Link className="option" to='/shop'>Shop</Link>
