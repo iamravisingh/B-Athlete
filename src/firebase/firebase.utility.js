@@ -39,4 +39,32 @@ provider.setCustomParameters({ prompt: 'select_account' })
 
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
+export const addCollectionAndDocuments = async (key,obj) => {
+    const collectionRef = firestore.collection(key);
+    console.log('collectionRef>>>>>>>>>>.', collectionRef);
+    const batch = firestore.batch();
+    obj.forEach(item => {
+        const newDocRef = collectionRef.doc();
+        batch.set(newDocRef,item)
+    })
+
+    return await batch.commit();
+}  
+
+export const convercollectionSnapshotToMap = (collections) => {
+    const transformedCollections = collections.docs.map(doc => {
+        const { title, items } = doc.data();
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id: doc.id,
+            title,
+            items
+        }
+    })
+    return transformedCollections.reduce((acc, curr) => {
+        acc[curr.title.toLowerCase()] = curr;
+        return acc;
+    }, {})
+}
+
 export default firebase;
